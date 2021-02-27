@@ -6,10 +6,10 @@ void setup() {
   Serial.begin(115200);
   Serial.println("\n\nFizzbuzz Arduino home edition\n");
 
-  uint8_t cnt{0};
+  uint32_t cnt{0};
 
   while (cnt++ != 100) {
-    //Serial.printf("%i ", cnt);    //uncomment to show all numbers preceding
+    //Serial.printf("%i ", cnt);    //uncomment to show all numbers
 
     static bool fb{false};
 
@@ -20,7 +20,7 @@ void setup() {
         }
       default: {
           switch (cnt % 5) {
-            case 0:  {
+            case 0: {
                 Serial.print("Buzz");
                 fb = true;
               }
@@ -28,7 +28,7 @@ void setup() {
           }
         }
     }
-    Serial.println(fb ? "" : String(cnt));
+    Serial.println(fb ? "!" : String(cnt));
     fb = false;
   }
 }
